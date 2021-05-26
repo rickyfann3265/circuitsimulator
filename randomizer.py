@@ -5,7 +5,19 @@ import numpy
 resistorList=[]
 order=[]
 
-class Resistor():
+masterList=numpy.array()
+
+class Component():
+    def location(self,x1,y1,x2,y2):
+        self.location1=tuple(x1,y1)
+        self.location2=tuple(x2,y2)
+
+class VoltageSource(Component):
+    def __init__(self, name, voltage):
+        self.name=name
+        self.voltage=voltage
+
+class Resistor(Component):
     def __init__(self, name, resistance):
         self.name=name
         self.resistance=resistance
@@ -26,7 +38,7 @@ while len(resistorList)>0:
     
     order.append(temp)
 
-print(order)
+# print(order)
 
 for object in order:
     for component in object:
